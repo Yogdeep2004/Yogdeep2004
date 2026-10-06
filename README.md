@@ -138,10 +138,10 @@ A generator can match the histogram of real market data and still produce paths 
 
 | Project | What it is |
 | --- | --- |
-| [Human&nbsp;Action&nbsp;Prediction](https://github.com/Yogdeep2004/Human_action_prediction) | Human activity recognition on the MHEALTH wearable-sensor dataset, comparing classical classifiers. `scikit-learn` `statsmodels` |
+| [Human&nbsp;Action&nbsp;Prediction](https://github.com/Yogdeep2004/Human_action_prediction) | Human activity recognition on the MHEALTH wearable-sensor dataset. KNN on scaled readings reaches 97% accuracy. `scikit-learn` |
 | [Sentiment&nbsp;Analysis](https://github.com/Yogdeep2004/sentiment-analysis) | VADER against a Hugging Face transformer on product-review sentiment. `NLTK` `Transformers` |
-| [Bike&nbsp;Sharing&nbsp;Demand](https://github.com/Yogdeep2004/Bike_sharing_demand_prediction) | Daily rental demand forecasting with RFE feature selection and a Random Forest regressor. `scikit-learn` |
-| [Diabetes&nbsp;Prediction](https://github.com/Yogdeep2004/Diabetes_predict) | Logistic regression, KNN and decision trees compared on confusion matrix, F1 and ROC-AUC. `scikit-learn` |
+| [Bike&nbsp;Sharing&nbsp;Demand](https://github.com/Yogdeep2004/Bike_sharing_demand_prediction) | Daily rental demand forecasting with RFE feature selection and a random forest, R2 of 0.90. `scikit-learn` |
+| [Diabetes&nbsp;Prediction](https://github.com/Yogdeep2004/Diabetes_predict) | KNN, a decision tree and an MLP compared on the Pima diabetes data, with the overfitting made visible. `scikit-learn` |
 | [neuralnet](https://github.com/Yogdeep2004/neuralnet) | First project on GitHub. `Python` |
 
 </details>

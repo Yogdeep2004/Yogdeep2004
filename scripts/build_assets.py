@@ -274,7 +274,7 @@ def fig_tbcgan():
     body += arrow(537, mid, 553, mid)
     body += node(556, ny, 108, nh, "synthetic", "24-step window")
     body += arrow(667, mid, 685, mid)
-    body += node(688, ny, 88, nh, "critic", "CNN + BiLSTM", accent=True)
+    body += node(688, ny, 88, nh, "critic", "realism score", accent=True)
     # real data into the critic
     body += '<text x="732" y="64" font-size="10.5" text-anchor="middle" class="mono mu">real window</text>'
     body += arrow(732, 70, 732, 91)
@@ -299,7 +299,7 @@ def fig_tbcgan():
     )
     title = (
         "TBC-GAN architecture: noise and a condition pass through a generator of Transformer, BiLSTM and CNN blocks "
-        "to produce a 24-step synthetic window, scored by a CNN + BiLSTM critic trained with WGAN-GP. "
+        "to produce a 24-step synthetic window, scored by a critic trained with WGAN-GP. "
         "Results against baseline: 98.2% lower kurtosis error, 94% lower skewness deviation, 68.7% lower KS statistic, "
         "ACF MSE of 0.0107 over 20 lags."
     )
