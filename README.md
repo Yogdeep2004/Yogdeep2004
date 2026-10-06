@@ -7,7 +7,7 @@
 <p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
-  <img src="assets/header-light.svg" width="100%" alt="Yogdeep Benchimath. AI / ML Engineer. Building ML systems that survive contact with real-world data.">
+  <img src="assets/header-light.svg" width="100%" alt="Yogdeep Benchimath. AI / ML Engineer. Building ML systems that survive contact with real-world data. A bell curve places the AI engineer (AI + engineering + communication) at the peak, between the AI vibe coder and the SDE.">
 </picture>
 </p>
 

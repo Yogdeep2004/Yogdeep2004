@@ -8,7 +8,7 @@ SVGs. Each one is self-contained (no external fonts or images), sits on a
 transparent background so it blends with any GitHub theme, and honours
 prefers-reduced-motion. Edit the content blocks below and re-run.
 """
-import random
+import math
 from pathlib import Path
 from string import Template
 from xml.sax.saxutils import escape
@@ -95,33 +95,18 @@ def arrow(x1, y1, x2, y2, accent=False):
 
 
 # --------------------------------------------------------------------------
-# Header: name, role, tagline, and a real-vs-synthetic series motif (TBC-GAN)
+# Header: name, role, tagline, and the positioning curve (where an AI engineer sits)
 # --------------------------------------------------------------------------
 def header():
-    x0, x1, y_top, y_bot, n = 456.0, 794.0, 40.0, 176.0, 60
-    rng = random.Random(11)
-
-    def series(spike_a, spike_b, noise):
-        v, out = 0.24, []
-        for i in range(n):
-            shock = rng.gauss(0, noise)
-            if i == 20:
-                shock += spike_a
-            if i == 43:
-                shock += spike_b
-            v += 0.16 * (0.22 - v) + shock
-            v = min(max(v, 0.06), 0.98)
-            out.append(v)
-        return out
-
-    def to_pts(vals):
-        return [(x0 + i * (x1 - x0) / (n - 1), y_bot - v * (y_bot - y_top)) for i, v in enumerate(vals)]
-
-    real = to_pts(series(0.62, 0.36, 0.030))
-    synth = to_pts(series(0.57, 0.40, 0.026))
-    d_real, d_synth = smooth(real), smooth(synth)
-    ex, ey = synth[-1]
-    area = d_synth + f"L{x1:.1f} {y_bot + 14:.1f}L{x0:.1f} {y_bot + 14:.1f}Z"
+    x0, x1, base, amp, sigma, cx = 404.0, 796.0, 192.0, 118.0, 38.0, 612.0
+    n = 72
+    pts = []
+    for i in range(n):
+        x = x0 + i * (x1 - x0) / (n - 1)
+        pts.append((x, base - amp * math.exp(-((x - cx) ** 2) / (2 * sigma ** 2))))
+    curve = smooth(pts)
+    area = curve + f"L{x1:.1f} {base:.1f}L{x0:.1f} {base:.1f}Z"
+    peak_y = base - amp
 
     body = (
         '<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">'
@@ -132,30 +117,37 @@ def header():
         '<text x="-2" y="188" font-size="70" font-weight="700" letter-spacing="-2.6" class="fg">Benchimath</text>'
         '<text x="1" y="236" font-size="18" class="tx">Building ML systems that survive contact with real-world data.</text>'
         f'<path d="{area}" fill="url(#g)" class="area"/>'
-        f'<path d="{d_real}" class="real"/>'
-        f'<path d="{d_synth}" pathLength="1" class="synth"/>'
-        f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="3.6" class="ac dot"/>'
-        f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="3.6" class="ring"/>'
-        '<path d="M648 202h16" class="real"/>'
-        '<text x="670" y="206" font-size="11.5" class="mono mu">real</text>'
-        '<path d="M712 202h16" class="synth-key"/>'
-        '<text x="734" y="206" font-size="11.5" class="mono mu">synthetic</text>'
+        f'<path d="{curve}" pathLength="1" class="curve"/>'
+        # left tail
+        f'<g class="l1"><text x="{x0:.0f}" y="151" font-size="11" letter-spacing="1.4" class="mono fg b">AI VIBE CODER</text>'
+        f'<text x="{x0:.0f}" y="166" font-size="10" class="mu">Random AI vibe-coded apps</text></g>'
+        # peak
+        f'<g class="l2"><text x="{cx:.0f}" y="36" font-size="12.5" letter-spacing="2" text-anchor="middle" class="mono ac b">AI ENGINEER</text>'
+        f'<text x="{cx:.0f}" y="52" font-size="10.5" text-anchor="middle" class="mu">AI + Engineering + Communication</text></g>'
+        # right tail
+        f'<g class="l3"><text x="{x1:.0f}" y="151" font-size="11" letter-spacing="1.4" text-anchor="end" class="mono fg b">SDE</text>'
+        f'<text x="{x1:.0f}" y="166" font-size="10" text-anchor="end" class="mu">Zero AI knowledge</text></g>'
+        f'<circle cx="{cx:.1f}" cy="{peak_y:.1f}" r="3.8" class="ac dot"/>'
+        f'<circle cx="{cx:.1f}" cy="{peak_y:.1f}" r="3.8" class="ring"/>'
     )
     css = """
 .stop-a{stop-color:$ac;stop-opacity:.20}.stop-b{stop-color:$ac;stop-opacity:0}
-.real{stroke:$mu;stroke-width:1.4;stroke-opacity:.75;fill:none;stroke-linecap:round}
-.synth{stroke:$ac;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;animation:draw 2.6s cubic-bezier(.3,.1,.2,1) .3s backwards}
-.synth-key{stroke:$ac;stroke-width:2.2;fill:none;stroke-linecap:round}
-.area{animation:fade 1.2s ease-out 2.2s backwards}
-.dot{animation:fade .3s ease-out 2.8s backwards}
-.ring{fill:none;stroke:$ac;stroke-width:1.4;opacity:0;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out 3s infinite}
+.curve{stroke:$fg;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;animation:draw 2.2s cubic-bezier(.4,.1,.3,1) .3s backwards}
+.area{animation:fade 1.2s ease-out 2.1s backwards}
+.l1{animation:fade .5s ease-out .7s backwards}
+.l2{animation:fade .5s ease-out 1.5s backwards}
+.l3{animation:fade .5s ease-out 2.2s backwards}
+.dot{animation:fade .3s ease-out 1.5s backwards}
+.ring{fill:none;stroke:$ac;stroke-width:1.4;opacity:0;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out 2.8s infinite}
 @keyframes draw{from{stroke-dashoffset:1}}
 @keyframes fade{from{opacity:0}}
 @keyframes pulse{0%{opacity:.7;transform:scale(1)}70%,100%{opacity:0;transform:scale(3.4)}}
 """
     # Resting state is the finished frame, so nothing is hidden if animation never runs.
     write("header", W, 256, body, css,
-          "Yogdeep Benchimath, AI / ML Engineer. Building ML systems that survive contact with real-world data.")
+          "Yogdeep Benchimath, AI / ML Engineer. Building ML systems that survive contact with real-world data. "
+          "A bell curve places the AI engineer (AI + engineering + communication) at the peak, "
+          "between the AI vibe coder and the SDE with zero AI knowledge.")
 
 
 # --------------------------------------------------------------------------
