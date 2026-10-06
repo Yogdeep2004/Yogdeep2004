@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 34" width="100" height="34" role="img" aria-label="Resume"><title>Resume</title><style>
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Noto Sans', Arial, sans-serif}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.fg{fill:#F0F6FC}.tx{fill:#C9D1D9}.mu{fill:#9198A1}.fa{fill:#6E7681}.ac{fill:#5B9DFF}.on{fill:#0D1117}
+.b{font-weight:600}
+.hair{stroke:#F0F6FC;stroke-opacity:.16;fill:none}
+.panel{fill:#F0F6FC;fill-opacity:.03;stroke:#F0F6FC;stroke-opacity:.15}
+.node{fill:#F0F6FC;fill-opacity:.04;stroke:#F0F6FC;stroke-opacity:.24}
+.node-ac{fill:#5B9DFF;fill-opacity:.12;stroke:#5B9DFF;stroke-opacity:.75}
+.wire{stroke:#9198A1;stroke-width:1.3;fill:none}
+.wire-ac{stroke:#5B9DFF;stroke-width:1.5;fill:none}
+.head{fill:#9198A1}.head-ac{fill:#5B9DFF}
+.tick-on{stroke:#0D1117;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}.tick-fg{stroke:#9198A1;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><rect x=".5" y=".5" width="99" height="33" rx="7.5" class="panel"/><text x="14" y="22" font-size="13.5" class="fg b">Resume</text><path d="M77 21.5l8-8m-5.5 0h5.5v5.5" class="tick-fg"/></svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 34" width="112" height="34" role="img" aria-label="Portfolio"><title>Portfolio</title><style>
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Noto Sans', Arial, sans-serif}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.fg{fill:#1F2328}.tx{fill:#3B434B}.mu{fill:#59636E}.fa{fill:#818B98}.ac{fill:#1D5FD6}.on{fill:#FFFFFF}
+.b{font-weight:600}
+.hair{stroke:#1F2328;stroke-opacity:.16;fill:none}
+.panel{fill:#1F2328;fill-opacity:.03;stroke:#1F2328;stroke-opacity:.15}
+.node{fill:#1F2328;fill-opacity:.04;stroke:#1F2328;stroke-opacity:.24}
+.node-ac{fill:#1D5FD6;fill-opacity:.12;stroke:#1D5FD6;stroke-opacity:.75}
+.wire{stroke:#59636E;stroke-width:1.3;fill:none}
+.wire-ac{stroke:#1D5FD6;stroke-width:1.5;fill:none}
+.head{fill:#59636E}.head-ac{fill:#1D5FD6}
+.tick-on{stroke:#FFFFFF;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}.tick-fg{stroke:#59636E;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><rect width="112" height="34" rx="8" class="ac"/><text x="14" y="22" font-size="13.5" class="on b">Portfolio</text><path d="M89 21.5l8-8m-5.5 0h5.5v5.5" class="tick-on"/></svg>
