@@ -230,7 +230,7 @@ Evaluation gets built before the system it judges. At EdgeTensor that meant scri
 
 ## Contact
 
-Let's build something interesting. I am open to conversations about AI, machine learning, research and engineering.
+Let's build something interesting. I am open to conversations about AI, machine learning, research and engineering..
 
 [LinkedIn](https://www.linkedin.com/in/yogdeep-benchimath-b61b9928a/) &nbsp;/&nbsp; [Email](mailto:yogdeep2004@gmail.com) &nbsp;/&nbsp; [Resume](https://drive.google.com/file/d/1BCY0wAVPWIlkri2drv9za_PuQ6MCot1X/view?usp=sharing) &nbsp;/&nbsp; [Portfolio](https://deepwork-systems.vercel.app/)
 
